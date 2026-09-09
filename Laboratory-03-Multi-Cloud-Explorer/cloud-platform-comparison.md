@@ -14,10 +14,10 @@
 
 ## My Answers
 
-- 1. AWS offers the broadest range of services because it has the most complete cloud ecosystem.
-- 2. Microsoft Azure integrates best with Microsoft technologies.
-- 3. GCP is strongest in AI and Kubernetes.
-- 4. I would choose AWS because it is flexible and widely used.
+1. AWS offers the broadest range of services because it has the most complete cloud ecosystem.
+2. Microsoft Azure integrates best with Microsoft technologies.
+3. GCP is strongest in AI and Kubernetes.
+4. I would choose AWS because it is flexible and widely used.
 
 
 ## Service Mapping

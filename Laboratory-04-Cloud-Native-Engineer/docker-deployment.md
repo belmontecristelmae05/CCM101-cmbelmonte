@@ -1,72 +1,18 @@
 # Docker Deployment
 
-## Docker Environment Verification
+## The Container Lifecycle
 
-### Check Docker Version
+A Cloud-Native Engineer must know how to manage running containers. The following commands were used to list, stop, verify, and remove the Nginx container.
 
-```bash
-docker --version
-```
-
-This command displays the installed Docker version and confirms that Docker is available in the environment.
-
-### Check Docker Environment
-
-```bash
-docker info
-```
-
-This command displays detailed information about the Docker environment, including the Docker server, containers, images, storage, and operating system.
-
----
-
-## Nginx Deployment
-
-### Pull the Nginx Image
-
-```bash
-docker pull nginx
-```
-
-This command downloads the official Nginx image from Docker Hub.
-
-### Run the Nginx Container
-
-```bash
-docker run -d --name nginx-server -p 8080:80 nginx
-```
-
-This command creates and runs an Nginx container in detached mode and maps port 8080 on the host to port 80 inside the container.
-
-### Check the Running Container
+### 1. List Running Containers
 
 ```bash
 docker ps
 ```
 
-This command lists the containers that are currently running.
+This command lists all currently running Docker containers and shows that the Nginx container is running.
 
-### Test the Web Server
-
-```bash
-curl http://localhost:8080
-```
-
-This command sends an HTTP request to the Nginx web server and verifies that it is responding successfully.
-
----
-
-## Container Lifecycle
-
-### List Running Containers
-
-```bash
-docker ps
-```
-
-This command displays all currently running containers.
-
-### Stop the Container
+### 2. Stop the Running Container
 
 ```bash
 docker stop nginx-server
@@ -74,29 +20,29 @@ docker stop nginx-server
 
 This command stops the running Nginx container.
 
-### Verify the Container Is Stopped
+### 3. Verify It Is Stopped
 
 ```bash
 docker ps
 ```
 
-This command confirms that the Nginx container is no longer running.
+This command verifies that the Nginx container is no longer running.
 
-### View All Containers
+To view the stopped container:
 
 ```bash
 docker ps -a
 ```
 
-This command displays both running and stopped containers so the stopped Nginx container can be verified.
+This command displays all containers, including stopped containers, and shows the Nginx container with an `Exited` status.
 
-### Remove the Container
+### 4. Remove the Container Completely
 
 ```bash
 docker rm nginx-server
 ```
 
-This command permanently removes the stopped Nginx container.
+This command completely removes the stopped Nginx container.
 
 ### Verify Container Removal
 
@@ -104,4 +50,10 @@ This command permanently removes the stopped Nginx container.
 docker ps -a
 ```
 
-This command verifies that the removed Nginx container no longer appears in the container list.
+This command verifies that the Nginx container has been completely removed and no longer appears in the container list.
+
+## Screenshot
+
+### Container Lifecycle
+
+![Container Lifecycle](screenshots/container-lifecycle.png)

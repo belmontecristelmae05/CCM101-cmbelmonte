@@ -48,4 +48,7 @@ Google Cloud provides services for data processing and analytics. These services
 
 Google Cloud can be used for artificial intelligence and machine learning applications. It can also support data analytics, containerized applications, and high-performance workloads.
 
+## Screenshot
+
+![Google Cloud Homepage](screenshots/gcp-homepage.png)
 

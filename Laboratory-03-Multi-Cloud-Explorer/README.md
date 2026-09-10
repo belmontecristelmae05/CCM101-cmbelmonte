@@ -21,6 +21,7 @@ uname -a
 
 ### Terminal Evidence 1 – Operating System
 ![Operating System](https://github.com/user-attachments/assets/ceccc8e9-4038-4c5d-8de1-1534478a4294)
+
 ---
 
 ## 2. CPU Information
@@ -38,6 +39,7 @@ lscpu
 
 ### Terminal Evidence 2 – CPU Information
 ![CPU](https://github.com/user-attachments/assets/752b3413-b1a0-4266-8c19-fa718b79bf07)
+
 ---
 
 ## 3. Memory
@@ -80,8 +82,8 @@ df -h
 
 | Information      | Linux Command         | Result                                                                                  |
 | ---------------- | --------------------- | ------------------------------------------ |
-| Operating System | `uname -a`            |  Linux ubuntuv 6.8.0-13-generic #138-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 31 22:41:49 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux |
-| CPU Information  | `lscpu`               | x86_64, 1 CPU, Intel Xeon E312xx, 1.9 GHz |
+| Operating System | `uname -a`            |  Ubuntu 24.04, Linux 6.8.0-13-generic, x86_64, GNU/Linux |
+| CPU Information  | `lscpu`               | x86_64, 1 CPU, Intel Xeon E312xx, 2.00 GHz |
 | Memory           | `free -h`             | 1.9 GiB total, 1.5 GiB available             |
 | Disk Space       | `df -h`               | 19 GB total, 13 GB available disk space                             |
 

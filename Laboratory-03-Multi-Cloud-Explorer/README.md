@@ -34,7 +34,7 @@ lscpu
 - Architecture: x86_64
 - CPU(s): 1
 - Model: Intel Xeon E312xx (Sandy Bridge, IBRS update)
-- CPU Frequency: 1.9 GHz
+- CPU Frequency: 2.00 GHz
 
 ### Terminal Evidence 2 – CPU Information
 ![CPU](https://github.com/user-attachments/assets/752b3413-b1a0-4266-8c19-fa718b79bf07)

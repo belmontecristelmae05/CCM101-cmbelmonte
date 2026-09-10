@@ -1,93 +1,128 @@
-# Laboratory 04 - The Cloud-Native Engineer
+
+# Laboratory 04 - Cloud-Native Engineer
+---
 
 ## Mission Overview
 
-In this laboratory activity, I explored the difference between traditional Virtual Machines and containers. I used the KillerCoda Docker environment to practice basic Docker commands and deployed an Nginx web server inside a container. I also learned how to manage the container lifecycle and document the procedures using Markdown.
+This laboratory activity focused on learning how Docker containers are used in cloud-native environments. Using the KillerCoda Docker environment, I checked the Docker installation and environment, downloaded the Nginx image, ran an Nginx container, tested the web server, and managed the container lifecycle. The activity helped me understand how containers can provide a faster and more lightweight way of running applications.
+
+---
 
 ## Objectives
 
-- Differentiate between Virtual Machines and Containers.
-- Access a Docker-enabled cloud environment using KillerCoda.
-- Execute fundamental Docker CLI commands.
-- Pull and run a containerized Nginx application.
-- Manage and terminate a Docker container.
-- Document container operations using Markdown.
-- Maintain an organized GitHub Cloud Computing portfolio.
+- Differentiate Virtual Machines from Containers.
+- Access a Docker-enabled environment using KillerCoda.
+- Verify that Docker is installed and running.
+- Execute basic Docker CLI commands.
+- Pull and run an Nginx container.
+- Use port mapping to access a web server inside a container.
+- Test the Nginx web server using curl.
+- Stop and remove a Docker container.
+- Document Docker commands using Markdown.
+- Organize laboratory work in a GitHub portfolio.
+
+---
 
 ## Docker Commands Executed
 
-### Check Docker Version
+### Checkpoint 3 - Verify Docker
 
 ```bash
 docker --version
-```
+````
 
-### Check Docker Environment
+This command checks the installed Docker version.
 
 ```bash
 docker info
 ```
 
-### Pull Nginx Image
+This command displays detailed information about the Docker environment and confirms that Docker is running properly.
+
+### Checkpoint 4 - Deploy Nginx
 
 ```bash
 docker pull nginx
 ```
 
-### Run Nginx Container
+This command downloads the Nginx image from Docker Hub.
 
 ```bash
 docker run -d --name nginx-server -p 8080:80 nginx
 ```
 
-### List Running Containers
+This command runs the Nginx container in detached mode and maps host port 8080 to port 80 inside the container.
 
 ```bash
 docker ps
 ```
 
-### Test Nginx Web Server
+This command shows the running Nginx container and its port mapping.
 
 ```bash
 curl http://localhost:8080
 ```
 
-### Stop the Container
+This command sends a request to the Nginx web server and displays the Nginx welcome page in the terminal.
+
+### Checkpoint 5 - Container Lifecycle
+
+```bash
+docker ps
+```
+
+This command lists the running Nginx container.
 
 ```bash
 docker stop nginx-server
 ```
 
-### View All Containers
+This command stops the running Nginx container.
+
+```bash
+docker ps
+```
+
+This command verifies that the Nginx container is no longer running.
 
 ```bash
 docker ps -a
 ```
 
-### Remove the Container
+This command displays all containers, including the stopped Nginx container.
 
 ```bash
 docker rm nginx-server
 ```
 
-### Verify Container Removal
+This command removes the stopped Nginx container completely.
 
 ```bash
 docker ps -a
 ```
 
+This command verifies that the Nginx container has been removed.
+
+---
+
 ## Skills Learned
 
-- Understanding the difference between Virtual Machines and containers.
-- Using Docker CLI commands.
-- Pulling images from Docker Hub.
-- Creating and running Docker containers.
-- Mapping ports between the host and a container.
-- Testing a containerized web server.
-- Managing the container lifecycle.
-- Creating technical documentation using Markdown.
-- Organizing and maintaining a GitHub portfolio.
+* Using basic Docker CLI commands
+* Checking the Docker environment
+* Pulling Docker images
+* Running Docker containers
+* Using port mapping
+* Deploying an Nginx web server
+* Testing a containerized web server
+* Managing the container lifecycle
+* Using the Linux terminal
+* Creating technical documentation using Markdown
+* Organizing files and screenshots in GitHub
+
+---
 
 ## Challenges Encountered
 
-One challenge I encountered was understanding the difference between a Virtual Machine and a container. I also needed to become familiar with Docker commands and the purpose of port mapping. Running the Nginx container helped me understand how containers can make application deployment faster and easier. Another challenge was organizing the screenshots and Markdown files correctly in the GitHub repository.
+One challenge I encountered was understanding and using the different Docker commands correctly. I also needed to understand how the port mapping `8080:80` allowed me to access the Nginx web server through the host. Another challenge was managing the container from running it to stopping and removing it. Following the commands step by step helped me understand how Docker containers are deployed and managed.
+
+```

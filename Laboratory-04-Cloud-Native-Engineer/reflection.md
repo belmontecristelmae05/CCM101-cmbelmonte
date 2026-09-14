@@ -1,4 +1,4 @@
-# Mission 4 Reflection
+# Mission Reflection
 
 This laboratory activity helped me understand the difference between Virtual Machines and containers and how Docker makes application deployment faster and easier. When using a Virtual Machine, installing an operating system requires more time because the VM needs to boot and run a complete operating system. In comparison, a Docker container can start in seconds because containers share the host operating system kernel. This makes containers more lightweight and efficient for applications such as web servers.
 

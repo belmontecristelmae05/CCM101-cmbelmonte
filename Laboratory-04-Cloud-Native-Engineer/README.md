@@ -22,83 +22,31 @@ This laboratory activity focused on learning how Docker containers are used in c
 
 ## Docker Commands Executed
 
-### Checkpoint 3 - Verify Docker
+### Checkpoint 3 - Docker Playground
 
 ```bash
 docker --version
-````
-
-This command checks the installed Docker version.
-
-```bash
 docker info
 ```
-
-This command displays detailed information about the Docker environment and confirms that Docker is running properly.
 
 ### Checkpoint 4 - Deploy Nginx
 
 ```bash
 docker pull nginx
-```
-
-This command downloads the Nginx image from Docker Hub.
-
-```bash
 docker run -d --name nginx-server -p 8080:80 nginx
-```
-
-This command runs the Nginx container in detached mode and maps host port 8080 to port 80 inside the container.
-
-```bash
 docker ps
-```
-
-This command shows the running Nginx container and its port mapping.
-
-```bash
 curl http://localhost:8080
 ```
-
-This command sends a request to the Nginx web server and displays the Nginx welcome page in the terminal.
 
 ### Checkpoint 5 - Container Lifecycle
 
 ```bash
 docker ps
-```
-
-This command lists the running Nginx container.
-
-```bash
 docker stop nginx-server
-```
-
-This command stops the running Nginx container.
-
-```bash
 docker ps
-```
-
-This command verifies that the Nginx container is no longer running.
-
-```bash
-docker ps -a
-```
-
-This command displays all containers, including the stopped Nginx container.
-
-```bash
 docker rm nginx-server
 ```
 
-This command removes the stopped Nginx container completely.
-
-```bash
-docker ps -a
-```
-
-This command verifies that the Nginx container has been removed.
 
 ---
 

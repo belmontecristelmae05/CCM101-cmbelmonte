@@ -8,18 +8,15 @@ This laboratory activity focused on learning how Docker containers are used in c
 
 ---
 
+
 ## Objectives
 
-- Differentiate Virtual Machines from Containers.
-- Access a Docker-enabled environment using KillerCoda.
-- Verify that Docker is installed and running.
-- Execute basic Docker CLI commands.
-- Pull and run an Nginx container.
-- Use port mapping to access a web server inside a container.
-- Test the Nginx web server using curl.
-- Stop and remove a Docker container.
-- Document Docker commands using Markdown.
-- Organize laboratory work in a GitHub portfolio.
+- Explore how Docker works in a cloud-native environment.
+- Practice using Docker through the KillerCoda terminal.
+- Deploy and access an Nginx web server using a container.
+- Learn how port mapping connects the host to the container.
+- Practice stopping and removing a Docker container.
+- Improve technical documentation and GitHub organization.
 
 ---
 
@@ -107,22 +104,12 @@ This command verifies that the Nginx container has been removed.
 
 ## Skills Learned
 
-* Using basic Docker CLI commands
-* Checking the Docker environment
-* Pulling Docker images
-* Running Docker containers
-* Using port mapping
-* Deploying an Nginx web server
-* Testing a containerized web server
-* Managing the container lifecycle
-* Using the Linux terminal
-* Creating technical documentation using Markdown
-* Organizing files and screenshots in GitHub
+Through this laboratory activity, I learned how to use basic Docker commands to create, run, check, stop, and remove containers. I also learned the difference between virtual machines and containers and understood why containers are useful in cloud-native environments. The activity helped me become more familiar with the Linux terminal and Docker container management.
 
 ---
 
 ## Challenges Encountered
 
-One challenge I encountered was understanding and using the different Docker commands correctly. I also needed to understand how the port mapping `8080:80` allowed me to access the Nginx web server through the host. Another challenge was managing the container from running it to stopping and removing it. Following the commands step by step helped me understand how Docker containers are deployed and managed.
+One challenge I encountered was understanding and using the different Docker commands correctly. I also needed to understand how the port mapping 8080:80 allowed me to access the Nginx web server through the host. Another challenge was managing the container from running it to stopping and removing it. Following the commands step by step helped me understand how Docker containers are deployed and managed.
 
 ```

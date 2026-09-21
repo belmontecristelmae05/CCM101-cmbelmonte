@@ -1,7 +1,5 @@
 # MinIO Deployment
 
----
-
 ## Docker Command Used
 
 MinIO was deployed using Docker with the following command:

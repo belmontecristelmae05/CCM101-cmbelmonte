@@ -1,13 +1,11 @@
-# Reflection
+# Mission Reflection
 
-## Reflection on the Cloud Data Engineer Activity
+This laboratory helped me understand how object storage can be used for applications that need to manage a large amount of unstructured data. One important lesson I learned is that object storage is useful for storing files such as photos because each file can be stored as an object with its own identifier and metadata. Unlike traditional storage approaches, it is designed to handle large collections of files and can be accessed through applications and web services.
 
-Object storage is suitable for storing millions of photos because it is designed to handle large amounts of unstructured data. Photos can be stored as individual objects and can be accessed when needed. This makes object storage useful for applications that allow users to upload many images.
+Docker also made the MinIO deployment easier because I did not have to manually install and configure every component of the storage server. By using one Docker command, I was able to download the MinIO image, create a container, configure the ports, and set the administrator credentials. This made the deployment process faster and also gave me more experience with Docker commands and environment variables.
 
-Docker simplified the deployment of MinIO because I did not need to install and configure the storage service manually. I used a Docker command to download and run the MinIO container while also setting the required ports and administrator credentials. This made the deployment process more organized and easier to manage.
+A bucket is a container used to organize objects in object storage. In this activity, I created a bucket named `client-photos`, which represents a storage location for the client's uploaded images. I then uploaded a test file to verify that the bucket was working properly.
 
-A bucket is a storage container used to organize objects in an object storage system. In this activity, I created a bucket named `client-photos` and uploaded an image into it. The image was stored as an object inside the bucket.
+Large companies can protect object storage data by using multiple copies of data, backups, replication, and storage systems distributed across different physical servers or locations. These techniques can help prevent data loss when hardware fails.
 
-Enterprises can protect object storage from physical server failure by using redundant storage, data replication, and distributed systems. These methods help keep data available even when a physical server or storage device fails.
-
-This activity also helped me become more comfortable with the Linux command line. I practiced commands such as `docker pull`, `docker run`, and `docker ps` while deploying and checking the MinIO container. I also learned how to access a service through a port and manage files using an object storage system. Overall, the activity gave me practical experience with Docker, MinIO, and cloud storage concepts.
+My confidence in using the Linux command line is also improving. At first, commands can seem difficult because they require exact syntax, but practicing Docker commands helped me become more comfortable with the terminal. I also learned that checking command output is important because it helps confirm whether an operation was successful. Overall, this activity gave me practical experience with Docker, MinIO, object storage, and cloud-based data management.

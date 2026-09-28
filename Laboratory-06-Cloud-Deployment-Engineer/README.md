@@ -23,3 +23,8 @@ nano docker-compose.yml
 docker-compose up -d
 docker-compose ps
 docker-compose down
+  ```
+
+## Skills Learned
+
+I learned how to create a Docker Compose configuration file and use it to deploy multiple containers at the same time. I also learned how Nextcloud can communicate with a MariaDB database container through the Docker Compose service name. This activity improved my understanding of multi-container deployment, YAML configuration, Docker Compose, and Infrastructure as Code.

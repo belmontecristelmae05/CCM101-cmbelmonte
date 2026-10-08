@@ -1,116 +1,112 @@
 # Container Observability Report
 
-## Overview
+## 1. Introduction
 
-This report documents the deployment, traffic simulation, application logging, and resource monitoring of the Nginx web server using Docker.
+This report documents the deployment and monitoring of an Nginx container using Docker. I tested HTTP requests, inspected container logs, and monitored resource usage to understand the behavior and performance of the running container.
 
-## 1. Deploy the Nginx Container
+## 2. Container Deployment
 
-### Command Executed
+### Docker Command
 
-    docker run -d --name clientwebsite -p 8080:80 nginx
+`docker run -d --name clientwebsite -p 8080:80 nginx`
 
 ### Explanation
 
-This command deploys an Nginx web server in the background. The container is named clientwebsite, and port 8080 on the host is mapped to port 80 inside the container.
+- `docker run` creates and starts a container.
+- `-d` runs the container in the background.
+- `--name clientwebsite` assigns a name to the container.
+- `-p 8080:80` maps host port 8080 to container port 80.
+- `nginx` specifies the Docker image.
 
-### Verify the Container
-
-    docker ps
-
-This command displays the running containers and their status.
+I verified that the container was running using `docker ps`.
 
 ### Screenshot
 
-- screenshots/install-nginx.png
+![Nginx Installation](screenshots/install-nginx.png)
 
-## 2. Generate Web Traffic
+## 3. HTTP Request Simulation
 
-### Successful HTTP Requests
+I used the `curl` command to test the Nginx web server.
 
-Commands executed:
+### Successful Request
 
-    curl http://localhost:8080
-    curl http://localhost:8080
-    curl http://localhost:8080
+Command used:
 
-These commands simulate three visits to the website. The requests should return the default Nginx welcome page.
+`curl -I http://localhost:8080`
 
-### Generate a Failed Request
-
-Command executed:
-
-    curl http://localhost:8080/hidden-admin-page
-
-This command requests a nonexistent page. Nginx should return a 404 Not Found response.
-
-### Check the HTTP Status Code
-
-    curl -o /dev/null -s -w "HTTP Status: %{http_code}\n" http://localhost:8080/hidden-admin-page
-
-Expected result:
-
-    HTTP Status: 404
-
-### Screenshots
-
-- screenshots/simulation1.png
-- screenshots/simulation2.png
-
-## 3. Application Logging
-
-### Command Executed
-
-    docker logs clientwebsite
-
-### Explanation
-
-The docker logs command displays the output produced by the container. Nginx access logs help identify incoming HTTP requests and their response status codes.
-
-### HTTP 404 Error Log
-
-Paste the actual log line containing the 404 status code from your terminal below.
-
-    [Paste your actual HTTP 404 log line here]
-
-### Why Application Logs Are Important
-
-Application logs help identify errors, failed requests, and unusual application behavior. They allow engineers to investigate problems and determine what happened instead of guessing about the cause.
+The server returned HTTP 200 OK, indicating that the request was successful.
 
 ### Screenshot
 
-- screenshots/docker-logs.png
+![Successful HTTP Request](screenshots/simulation1.png)
 
-## 4. Real-Time Container Metrics
+### Missing Page Request
 
-### Command Executed
+Command used:
 
-    docker stats clientwebsite
+`curl http://localhost:8080/hidden-admin-page`
 
-### Explanation
+To display only the HTTP status code, I also used:
 
-The docker stats command displays real-time information about a running container's resource consumption. It helps engineers monitor CPU usage, memory consumption, and network activity.
+`curl -o /dev/null -s -w "HTTP Status: %{http_code}\n" http://localhost:8080/hidden-admin-page`
+
+The server returned HTTP Status 404 because the requested page did not exist.
+
+### Screenshot
+
+![Missing Page Request](screenshots/simulation2.png)
+
+## 4. Log Analysis and Troubleshooting
+
+### Command Used
+
+`docker logs clientwebsite`
+
+### Observations
+
+- Nginx completed its startup process successfully.
+- Requests to the root page returned HTTP 200.
+- Requests to `/hidden-admin-page` returned HTTP 404.
+- The error logs indicated that the requested file could not be found.
+- The 404 response was expected because the requested page did not exist.
+
+The logs helped me understand how Nginx handled successful and unsuccessful requests.
+
+### Screenshot
+
+![Docker Logs](screenshots/docker-logs.png)
+
+## 5. Real-Time Container Metrics
+
+### Command Used
+
+`docker stats clientwebsite`
 
 ### Recorded Metrics
 
-Record the actual values displayed in your terminal.
+The following values were observed in the terminal screenshot.
 
 - **Container Name:** clientwebsite
-- **CPU Usage:** [Enter the actual CPU percentage]
-- **Memory Usage:** [Enter the actual memory usage]
-- **Memory Limit:** [Enter the displayed memory limit]
-- **Network I/O:** [Enter the displayed network input/output values]
+- **CPU Usage:** 0.00%
+- **Memory Usage:** 2.781 MiB
+- **Memory Limit:** 1.859 GiB
+- **Memory Percentage:** 0.15%
+- **Network I/O:** 4.97 kB / 6.46 kB
+- **Block I/O:** 49.2 kB / 12.3 kB
+- **PIDs:** 2
+
+These values represent the container's resource usage at the time of the screenshot. They may change while the container is running.
 
 ### Screenshot
 
-- screenshots/container-metrics.png
+![Container Metrics](screenshots/container-metrics.png)
 
-## 5. Observability Findings
+## 6. Findings
 
-The Nginx container was used to simulate normal website visits and a request to a nonexistent page. Application logs provided evidence of the requests and their HTTP response codes, while Docker metrics showed the container's resource consumption.
+The Nginx container started successfully and responded to HTTP requests. The successful request returned HTTP 200, while the nonexistent page returned HTTP 404.
 
-The recorded values represent the container's condition at the time of monitoring. Additional testing with more concurrent requests would be needed to determine how the application behaves under a large traffic surge.
+The container logs provided information about the requests and explained why the missing page could not be found. The `docker stats` command displayed resource usage, helping me understand how to monitor a running container.
 
-## Conclusion
+## 7. Conclusion
 
-This activity demonstrated how application logs and performance metrics support cloud operations. Logs help engineers investigate application events and errors, while metrics provide numerical information about resource usage and system performance.
+This activity demonstrated how Docker logs and container metrics support application monitoring and troubleshooting. HTTP status codes helped identify the result of each request, while container metrics provided information about CPU, memory, and I/O usage.

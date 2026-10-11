@@ -1,102 +1,76 @@
-# Laboratory Activity 7: The Cloud Operations Engineer
+
+# Laboratory 7 - The Cloud Operations Engineer
 
 ## Mission Overview
 
-In this laboratory activity, I practiced monitoring system resources and managing a Docker container. I checked memory and disk usage, deployed an Nginx web server, tested HTTP requests, inspected container logs, and monitored container performance.
+The mission of this laboratory activity is to monitor server resources, deploy an Nginx container using Docker, simulate HTTP requests, and inspect container logs and resource usage.
 
 ## Objectives
 
-- Monitor system memory and disk usage.
-- Observe CPU activity and running processes.
-- Deploy an Nginx container using Docker.
+- Check the server's available RAM and root filesystem storage.
+- Deploy and run an Nginx container using Docker.
 - Test successful and unsuccessful HTTP requests.
-- Analyze Docker container logs.
-- Monitor container resource usage.
-- Document the results using screenshots.
+- Inspect Docker logs to identify requests and errors.
+- Monitor container CPU and memory usage.
 
-## Checkpoint 2: System Resource Monitoring
+## Monitoring Commands Executed
 
-I used Linux commands to check memory usage, disk space, and running processes.
+### 1. Check Available RAM
 
-Commands used:
+```bash
+free -h
+```
 
-- `free -h`
-- `df -h /`
-- `top`
+### 2. Check Root Filesystem Storage
 
-### Memory Check
+```bash
+df -h /
+```
 
-The `free -h` command displays the system's memory usage.
+### 3. Monitor System Resources
 
-![Memory Check](screenshots/memory-check.png)
+```bash
+top
+```
 
-### Disk Check
+### 4. Deploy the Nginx Container
 
-The `df -h /` command displays the disk space used by the root filesystem.
+```bash
+docker run -d --name clientwebsite -p 8080:80 nginx
+```
 
-![Disk Check](screenshots/disk-check.png)
+### 5. Check Container Status
 
-## Checkpoint 3: Deploying Nginx
+```bash
+docker ps -a
+docker ps
+```
 
-I deployed an Nginx container using Docker.
+### 6. Simulate HTTP Requests
 
-Command used:
+```bash
+curl http://localhost:8080
+curl -I http://localhost:8080
+curl http://localhost:8080/hidden-admin-page
+curl -o /dev/null -s -w "HTTP Status: %{http_code}\n" http://localhost:8080/hidden-admin-page
+```
 
-`docker run -d --name clientwebsite -p 8080:80 nginx`
+The Nginx homepage returned HTTP status code 200, while the request to `/hidden-admin-page` returned HTTP status code 404.
 
-I verified the container using `docker ps`.
+### 7. Check Container Logs
 
-The container was named `clientwebsite`, and port 8080 on the host was mapped to port 80 inside the container.
+```bash
+docker logs clientwebsite
+```
 
-### Nginx Installation Screenshot
+### 8. Monitor Container Metrics
 
-![Nginx Installation](screenshots/install-nginx.png)
-
-## Checkpoint 4: Simulating Website Requests
-
-I used the `curl` command to test the Nginx web server.
-
-Commands used:
-
-- `curl http://localhost:8080`
-- `curl -I http://localhost:8080`
-- `curl http://localhost:8080/hidden-admin-page`
-
-The root page returned HTTP 200 OK, indicating a successful response. The nonexistent page returned HTTP 404 Not Found.
-
-### Simulation 1: Successful Request
-
-![Simulation 1](screenshots/simulation1.png)
-
-### Simulation 2: Missing Page Request
-
-![Simulation 2](screenshots/simulation2.png)
-
-## Checkpoint 5: Container Logs and Metrics
-
-I inspected the container logs using `docker logs clientwebsite`.
-
-The logs showed Nginx startup messages, successful requests, and requests that returned HTTP 404.
-
-### Docker Logs
-
-![Docker Logs](screenshots/docker-logs.png)
-
-I also used `docker stats clientwebsite` to monitor CPU usage, memory usage, network I/O, block I/O, and the number of processes.
-
-### Container Metrics
-
-![Container Metrics](screenshots/container-metrics.png)
+```bash
+docker stats clientwebsite
+```
 
 ## Skills Learned
 
-- Linux system resource monitoring
-- Docker container deployment
-- HTTP request testing
-- Nginx log analysis
-- Container performance monitoring
-- Technical documentation using Markdown
+In this laboratory activity, I learned how to check the server's available RAM and disk space using Linux commands. I also learned how to deploy and run an Nginx container using Docker. I learned how to test HTTP requests and understand the difference between status codes 200 and 404. I also learned how to check Docker logs to identify requests and errors. Lastly, I learned how to monitor container CPU and memory usage using the `docker stats` command.
 
-## Conclusion
 
-This laboratory helped me understand how to monitor system resources, deploy a web server using Docker, test HTTP responses, and inspect container logs. I also learned how container metrics can help administrators understand resource usage and troubleshoot applications.

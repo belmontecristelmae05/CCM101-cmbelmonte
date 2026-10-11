@@ -1,15 +1,13 @@
+
 # Mission Reflection
 
-This laboratory activity helped me understand the importance of monitoring a server and its containers. I learned that deploying an application is not enough because we also need to check its performance, identify errors, and make sure that it can run properly.
+In this laboratory activity, I learned that checking the host server's resources is important even when containers are running perfectly. Containers still depend on the host server's CPU, RAM, and disk space. If the server runs out of memory or storage, applications may become slow or stop working properly. Regular monitoring helps prevent problems and keeps applications running smoothly.
 
-Checking the host server's resources is important even when containers are running perfectly. Containers depend on the host's CPU, RAM, and disk storage. If the server runs out of memory or disk space, the containers may become slow or stop working. Monitoring these resources helps us identify possible problems before they affect users.
+If a user cannot log in to a web application, I would use the `docker logs` command to check the container's logs. The logs may show error messages, failed requests, or other problems that can help me understand what happened. By examining these messages, I can identify possible causes of the login issue and decide what steps to take to fix it.
 
-The docker logs command is useful when a user reports that they cannot log into a web application. It allows an engineer to examine the application's logs and look for error messages, failed requests, or other events related to the problem. These details can help narrow down the possible cause and guide the next troubleshooting steps.
+Monitoring logs and monitoring metrics have different purposes. Logs show recorded events, requests, and errors that happen inside an application. Metrics show numerical information about the container's performance, such as CPU usage, memory consumption, and network activity. Logs help explain what happened, while metrics help determine how well the system is performing.
 
-I also learned the difference between logs and metrics. Logs contain records of application events, requests, and errors. Metrics provide numerical measurements such as CPU usage, memory consumption, and network activity. Both are important because logs help explain what happened, while metrics help show how the system is performing.
+Large enterprise companies may use monitoring tools such as Prometheus and Grafana to monitor thousands of containers at the same time. Prometheus collects and stores metrics from different systems, while Grafana displays the collected information through dashboards and graphs. These tools help engineers monitor performance, identify unusual activity, and detect possible problems more efficiently.
 
-Large enterprise companies can monitor thousands of containers using centralized monitoring tools such as Prometheus and Grafana. Prometheus collects and stores metrics, while Grafana presents monitoring data through dashboards and visualizations. These tools help engineers observe system performance and identify problems across many services.
+This activity also improved my ability to troubleshoot Linux environments. I became more familiar with commands such as `free -h`, `df -h /`, `docker logs`, and `docker stats`. I learned how to check system resources, examine application errors, and monitor container performance. These skills helped me understand how to investigate problems instead of simply guessing their causes. I can use what I learned in future activities involving Linux, Docker, and cloud computing.
 
-My ability to troubleshoot Linux environments improved because I practiced using commands such as free -h, df -h /, top, docker logs, and docker stats. I became more familiar with checking system resources, examining application output, and monitoring containers. I also learned that troubleshooting should be based on actual evidence rather than assumptions.
-
-Overall, this laboratory helped me understand that monitoring is an important part of cloud computing. It taught me to check system health, analyze application logs, and use performance metrics to help maintain reliable applications.
